@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Сравнение тарифов</title>
+<style>
+:root{
+  --ink:#173c47;
+  --teal:#0d4f5e;
+  --teal-soft:#e9f0f1;
+  --accent:#c8893d;
+  --paper:#fbf8f3;
+  --line:#d8dfdf;
+  --muted:#6b777b;
+  --white:#fff;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
+body{padding:28px}
+.wrap{max-width:1380px;margin:0 auto}
+h1{font-family:Georgia,serif;font-size:42px;line-height:1.05;margin:0 0 10px}
+.sub{font-size:16px;line-height:1.45;margin:0 0 28px;color:#40545b}
+.table-wrap{overflow-x:auto;border:1px solid var(--line);background:#fff}
+.compare{min-width:980px}
+.head,.row{display:grid;grid-template-columns:1.5fr repeat(3,1fr)}
+.head{position:sticky;top:0;z-index:2}
+.head>div{padding:22px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+.head>div:last-child{border-right:0}
+.head .label{background:#f4efe7;font-size:12px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.plan{background:#fff}
+.plan.recommended{background:var(--teal);color:#fff}
+.plan .eyebrow{font-size:11px;text-transform:uppercase;letter-spacing:.08em;font-weight:800;margin-bottom:8px;opacity:.75}
+.plan .name{font-family:Georgia,serif;font-size:29px;line-height:1.05;font-weight:700}
+.plan .price{font-size:22px;font-weight:800;margin-top:12px}
+.plan .monthly{font-size:12px;margin-top:3px;opacity:.75}
+.row>div{padding:15px 18px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:58px;display:flex;align-items:center}
+.row>div:last-child{border-right:0}
+.row .feature{background:#fcfaf6;font-size:14px;font-weight:700}
+.cell{justify-content:center;text-align:center;font-size:13px;line-height:1.35}
+.yes{font-size:22px;font-weight:900;color:var(--teal)}
+.recommended-cell{background:#f3f8f8}
+.text{font-size:13px;line-height:1.35}
+.note{font-size:12px;color:var(--muted);line-height:1.45;margin:18px 0 0}
+.badge{display:inline-flex;align-items:center;justify-content:center;padding:5px 8px;border-radius:999px;background:#f3e2cc;color:#78511e;font-size:10px;font-weight:800;text-transform:uppercase;letter-spacing:.04em}
+@media(max-width:700px){
+  body{padding:14px}
+  h1{font-size:31px}
+  .sub{font-size:14px}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Сравнение тарифов</h1>
+  <p class="sub">Выберите формат обучения по объёму практики, обратной связи и персональной работы.</p>
+
+  <div class="table-wrap">
+    <div class="compare">
+      <div class="head">
+        <div class="label">Что входит</div>
+        <div class="plan">
+          <div class="eyebrow">Учиться в своём темпе</div>
+          <div class="name">Стандарт</div>
+          <div class="price">95 000 ₽</div>
+          <div class="monthly">9 500 ₽ в месяц</div>
+        </div>
+        <div class="plan recommended">
+          <div class="eyebrow">Рекомендуемый формат</div>
+          <div class="name">Продвинутый</div>
+          <div class="price">120 000 ₽</div>
+          <div class="monthly">12 000 ₽ в месяц</div>
+        </div>
+        <div class="plan">
+          <div class="eyebrow">Работа под супервизией</div>
+          <div class="name">VIP</div>
+          <div class="price">170 000 ₽</div>
+          <div class="monthly">17 000 ₽ в месяц</div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="feature">24 лекции в записи</div>
+        <div class="cell"><span class="yes">✓</span></div>
+        <div class="cell recommended-cell"><span class="yes">✓</span></div>
+        <div class="cell"><span class="yes">✓</span></div>
+      </div>
+      <div class="row">
+        <div class="feature">Презентации и гайды для скачивания</div>
+        <div class="cell"><span class="yes">✓</span></div>
+        <div class="cell recommended-cell"><span class="yes">✓</span></div>
+        <div class="cell"><span class="yes">✓</span></div>
+      </div>
+      <div class="row">
+        <div class="feature">Записи Zoom-разборов 3 потока</div>
+        <div class="cell"><span class="yes">✓</span></div>
+        <div class="cell recommended-cell"><span class="yes">✓</span></div>
+        <div class="cell"><span class="yes">✓</span></div>
+      </div>
+      <div class="row">
+        <div class="feature">Разборы текущего потока</div>
+        <div class="cell text">1 запись в месяц</div>
+        <div class="cell recommended-cell text">2 живых Zoom-разбора в месяц</div>
+        <div class="cell text">2 живых Zoom-разбора в месяц</div>
+      </div>
+      <div class="row">
+        <div class="feature">Возможность предложить свой кейс</div>
+        <div class="cell">—</div>
+        <div class="cell recommended-cell"><span class="yes">✓</span></div>
+        <div class="cell"><span class="yes">✓</span></div>
+      </div>
+      <div class="row">
+        <div class="feature">Чат и сопровождение</div>
+        <div class="cell text">Чат с куратором Анной Будрейка</div>
+        <div class="cell recommended-cell text">Закрытый Telegram-чат с Ольгой Гофман</div>
+        <div class="cell text">Отдельный чат + помощь по текущим клиническим задачам</div>
+      </div>
+      <div class="row">
+        <div class="feature">Еженедельный экспертный час</div>
+        <div class="cell">—</div>
+        <div class="cell recommended-cell"><span class="yes">✓</span></div>
+        <div class="cell"><span class="yes">✓</span></div>
+      </div>
+      <div class="row">
+        <div class="feature">Совместная супервизия с пациентом / клиентом</div>
+        <div class="cell">—</div>
+        <div class="cell recommended-cell">—</div>
+        <div class="cell text"><span class="badge">VIP</span><br>1 совместная супервизия + аудиорекомендации</div>
+      </div>
+      <div class="row">
+        <div class="feature">«Клиническое мышление» — 2 часа ежемесячно</div>
+        <div class="cell">—</div>
+        <div class="cell recommended-cell">—</div>
+        <div class="cell"><span class="yes">✓</span></div>
+      </div>
+      <div class="row">
+        <div class="feature">Условия получения сертификата</div>
+        <div class="cell text">2 кейса + тестирование</div>
+        <div class="cell recommended-cell text">1 кейс + тестирование</div>
+        <div class="cell text">Проверка схемы после супервизии + тестирование</div>
+      </div>
+      <div class="row">
+        <div class="feature">Доступ к материалам</div>
+        <div class="cell text">1 год после курса</div>
+        <div class="cell recommended-cell text">2 года</div>
+        <div class="cell text">Бессрочно</div>
+      </div>
+      <div class="row">
+        <div class="feature">Количество мест</div>
+        <div class="cell">—</div>
+        <div class="cell recommended-cell">—</div>
+        <div class="cell text">До 10 мест</div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note">* Количество мест для разбора собственных кейсов ограничено. Нутрициологический блок приобретается отдельно или добавляется к любому тарифу.</p>
+</div>
+</body>
+</html>

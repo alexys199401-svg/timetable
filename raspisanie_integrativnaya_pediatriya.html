@@ -5,123 +5,169 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Расписание занятий 2026–2027</title>
 <style>
-  :root{
-    --ink:#173c47;
-    --teal:#0d4f5e;
-    --teal2:#123f4b;
-    --accent:#c8893d;
-    --paper:#fbf8f3;
-    --soft:#f3ede4;
-    --line:#d6dedf;
-    --white:#fff;
-    --muted:#66777d;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Arial,Helvetica,sans-serif}
-  body{padding:28px}
-  .wrap{max-width:1460px;margin:0 auto}
-  h1{margin:0 0 8px;font-size:28px;line-height:1.1;font-weight:800}
-  .sub{margin:0 0 34px;font-size:17px;font-weight:600}
-  .filters{
-    display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;
-    padding:16px 18px;border:1px solid #d7d5cf;background:#f4efe7;margin-bottom:16px
-  }
-  .filter-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-  .label{font-size:12px;letter-spacing:.06em;font-weight:800;text-transform:uppercase;margin-right:4px}
-  button{
-    appearance:none;border:1px solid #cad5d8;background:#fff;color:var(--ink);
-    padding:11px 14px;font-weight:700;font-size:13px;cursor:pointer
-  }
-  button.active{background:var(--teal);color:#fff;border-color:var(--teal)}
-  button:disabled{opacity:.48;cursor:not-allowed}
-  .legend{display:flex;gap:28px;align-items:center;font-size:12px;font-weight:800;text-transform:uppercase;margin:12px 0 18px}
-  .dot{width:16px;height:16px;border-radius:50%;display:inline-block;margin-right:8px;vertical-align:-3px}
-  .dot.olga{background:var(--accent)}
-  .dot.joint{background:var(--teal)}
-  .notice{display:none;padding:18px;background:#fff7e9;border:1px solid #ead4b4;margin:16px 0;font-size:14px}
-  .month{margin:0 0 28px;border:1px solid #e4e6e5;background:#fff}
-  .month-title{background:var(--teal);color:#fff;padding:22px 24px;font-family:Georgia,serif;font-size:31px;font-weight:700}
-  .dow{display:grid;grid-template-columns:repeat(7,1fr);background:#f4efe7;border-bottom:1px solid var(--line)}
-  .dow div{padding:10px 8px;text-align:center;font-size:12px;font-weight:800}
-  .grid{display:grid;grid-template-columns:repeat(7,1fr)}
-  .day{
-    min-height:122px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);
-    padding:8px;background:#fff;overflow:hidden
-  }
-  .day:nth-child(7n){border-right:0}
-  .empty{background:#fcfbf8}
-  .date{font-size:13px;font-weight:800;color:#607177;margin-bottom:6px}
-  .date.has{color:var(--accent)}
-  .event{
-    border-left:4px solid var(--accent);background:#f6e7d1;padding:7px 7px 7px 8px;
-    font-size:11px;line-height:1.25;margin:6px 0;color:var(--ink)
-  }
-  .event.joint{border-left-color:var(--teal);background:#e8f0f1}
-  .event.record{border-left-color:#8a9ea4;background:#eef2f2}
-  .event.vip{border-left-color:#7b5b8e;background:#efe8f3}
-  .event .k{font-weight:900;text-transform:uppercase;font-size:10px}
-  .event .t{margin-top:2px}
-  .event .time{font-weight:800;margin-top:2px}
-  .foot{font-size:13px;color:#6d7779;margin:6px 0 0}
-  @media(max-width:900px){
-    body{padding:14px}
-    h1{font-size:23px}
-    .sub{font-size:15px;margin-bottom:22px}
-    .filters{gap:14px}
-    .filter-group{width:100%}
-    .calendar-scroll{overflow-x:auto;padding-bottom:4px}
-    .month{min-width:960px}
-    .day{min-height:112px}
-  }
+:root{
+  --ink:#173c47;
+  --teal:#0d4f5e;
+  --accent:#c8893d;
+  --paper:#fbf8f3;
+  --line:#d6dedf;
+}
+*{box-sizing:border-box}
+html,body{
+  margin:0;padding:0;background:var(--paper);color:var(--ink);
+  font-family:Arial,Helvetica,sans-serif
+}
+body{padding:28px}
+.wrap{max-width:1460px;margin:0 auto}
+h1{margin:0 0 8px;font-size:28px;line-height:1.1;font-weight:800}
+.sub{margin:0 0 34px;font-size:17px;font-weight:600}
+
+.filters{
+  display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;
+  padding:16px 18px;border:1px solid #d7d5cf;
+  background:#f4efe7;margin-bottom:16px
+}
+.filter-group{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.label{
+  font-size:12px;letter-spacing:.06em;font-weight:800;
+  text-transform:uppercase;margin-right:4px
+}
+button{
+  appearance:none;border:1px solid #cad5d8;background:#fff;color:var(--ink);
+  padding:11px 14px;font-weight:700;font-size:13px;cursor:pointer
+}
+button.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+button:disabled{opacity:.48;cursor:not-allowed}
+
+.legend{
+  display:flex;gap:28px;align-items:center;font-size:12px;
+  font-weight:800;text-transform:uppercase;margin:12px 0 18px
+}
+.dot{
+  width:16px;height:16px;border-radius:50%;display:inline-block;
+  margin-right:8px;vertical-align:-3px
+}
+.dot.olga{background:var(--accent)}
+.dot.joint{background:var(--teal)}
+
+.notice{
+  display:none;padding:14px 16px;background:#fff7e9;
+  border:1px solid #ead4b4;margin:12px 0 18px;
+  font-size:13px;line-height:1.45
+}
+
+.month{margin:0 0 28px;border:1px solid #e4e6e5;background:#fff}
+.month-title{
+  background:var(--teal);color:#fff;padding:22px 24px;
+  font-family:Georgia,serif;font-size:31px;font-weight:700
+}
+.dow{
+  display:grid;grid-template-columns:repeat(7,1fr);
+  background:#f4efe7;border-bottom:1px solid var(--line)
+}
+.dow div{padding:10px 8px;text-align:center;font-size:12px;font-weight:800}
+.grid{display:grid;grid-template-columns:repeat(7,1fr)}
+.day{
+  min-height:122px;border-right:1px solid var(--line);
+  border-bottom:1px solid var(--line);
+  padding:8px;background:#fff;overflow:hidden
+}
+.day:nth-child(7n){border-right:0}
+.empty{background:#fcfbf8}
+.date{font-size:13px;font-weight:800;color:#607177;margin-bottom:6px}
+.date.has{color:var(--accent)}
+
+.event{
+  border-left:4px solid var(--accent);background:#f6e7d1;
+  padding:7px 7px 7px 8px;font-size:11px;line-height:1.25;
+  margin:6px 0;color:var(--ink)
+}
+.event.joint{border-left-color:var(--teal);background:#e8f0f1}
+.event.record{border-left-color:#8a9ea4;background:#eef2f2}
+.event.vip{border-left-color:#7b5b8e;background:#efe8f3}
+.event .k{font-weight:900;text-transform:uppercase;font-size:10px}
+.event .t{margin-top:2px}
+.event .time{font-weight:800;margin-top:2px}
+.foot{font-size:13px;color:#6d7779;margin:6px 0 0}
+
+@media(max-width:900px){
+  body{padding:14px}
+  h1{font-size:23px}
+  .sub{font-size:15px;margin-bottom:22px}
+  .filters{gap:14px}
+  .filter-group{width:100%}
+  .calendar-scroll{overflow-x:auto;padding-bottom:4px}
+  .month{min-width:960px}
+  .day{min-height:112px}
+}
 </style>
 </head>
+
 <body>
 <div class="wrap">
-  <h1>Расписание занятий 2026–2027</h1>
-  <div class="sub">Выбирайте расписание по тарифу, блоку и формату занятия.</div>
 
-  <div class="filters">
-    <div class="filter-group">
-      <span class="label">Тариф</span>
-      <button data-tariff="standard">Стандарт</button>
-      <button data-tariff="advanced" class="active">Продвинутый</button>
-      <button data-tariff="vip">VIP</button>
-    </div>
-    <div class="filter-group">
-      <span class="label">Блок</span>
-      <button data-block="main" class="active">Основной курс</button>
-      <button data-block="nutrition" title="Данные нутрициологического блока нужно добавить отдельно">+ Нутрициологический блок</button>
-    </div>
-    <div class="filter-group">
-      <span class="label">Формат</span>
-      <button data-format="all" class="active">Все</button>
-      <button data-format="lecture">Лекции</button>
-      <button data-format="practice">Практики</button>
-    </div>
-  </div>
+<h1>Расписание занятий 2026–2027</h1>
+<div class="sub">
+Выбирайте расписание по тарифу, блоку и формату занятия.
+</div>
 
-  <div class="legend">
-    <span><span class="dot olga"></span>Ольга Гофман</span>
-    <span><span class="dot joint"></span>Совместное занятие</span>
-  </div>
+<div class="filters">
 
-  <div id="nutritionNotice" class="notice">
-    В присланном PDF есть расписание основного терапевтического блока. Если пришлёте расписание нутрициологического блока, его можно добавить в этот же переключатель.
-  </div>
+<div class="filter-group">
+<span class="label">Тариф</span>
+<button data-tariff="standard">Стандарт</button>
+<button data-tariff="advanced" class="active">Продвинутый</button>
+<button data-tariff="vip">VIP</button>
+</div>
 
-  <div class="calendar-scroll"><div id="calendar"></div></div>
-  <div class="foot">Все указанные часы — по московскому времени (МСК).</div>
+<div class="filter-group">
+<span class="label">Блок</span>
+<button data-block="main" class="active">Основной курс</button>
+<button data-block="nutrition">+ Нутрициологический блок</button>
+</div>
+
+<div class="filter-group">
+<span class="label">Формат</span>
+<button data-format="all" class="active">Все</button>
+<button data-format="lecture">Лекции</button>
+<button data-format="practice">Практики</button>
+</div>
+
+</div>
+
+<div class="legend">
+<span id="legendPrimary">
+<span class="dot olga"></span>Ольга Гофман
+</span>
+<span id="legendSecondary">
+<span class="dot joint"></span>Совместное занятие
+</span>
+</div>
+
+<div id="nutritionNotice" class="notice">
+Нутрициологический блок имеет единое расписание: 13 лекций в записи,
+10 живых практических занятий с Анной Будрейка и финальная Zoom-встреча.
+</div>
+
+<div class="calendar-scroll">
+<div id="calendar"></div>
+</div>
+
+<div class="foot">
+Все указанные часы — по московскому времени (МСК).
+</div>
+
 </div>
 
 <script>
 const months = [
-  {y:2026,m:9,name:'Октябрь 2026'},
-  {y:2026,m:10,name:'Ноябрь 2026'},
-  {y:2026,m:11,name:'Декабрь 2026'},
-  {y:2027,m:0,name:'Январь 2027'},
-  {y:2027,m:1,name:'Февраль 2027'},
-  {y:2027,m:2,name:'Март 2027'},
-  {y:2027,m:3,name:'Апрель 2027'}
+{y:2026,m:9,name:'Октябрь 2026'},
+{y:2026,m:10,name:'Ноябрь 2026'},
+{y:2026,m:11,name:'Декабрь 2026'},
+{y:2027,m:0,name:'Январь 2027'},
+{y:2027,m:1,name:'Февраль 2027'},
+{y:2027,m:2,name:'Март 2027'},
+{y:2027,m:3,name:'Апрель 2027'}
 ];
 
 const lectures = [
@@ -151,115 +197,397 @@ const lectures = [
 ];
 
 const recordedPractices = [
-'2026-10-24','2026-10-31','2026-11-07','2026-11-14','2026-11-21','2026-11-28',
+'2026-10-24','2026-10-31',
+'2026-11-07','2026-11-14','2026-11-21','2026-11-28',
 '2026-12-05','2026-12-12','2026-12-19','2026-12-26',
 '2027-01-09','2027-01-16','2027-01-23','2027-01-30',
 '2027-02-06','2027-02-13','2027-02-20','2027-02-27',
-'2027-03-06','2027-03-13','2027-03-20','2027-03-27','2027-04-03'
+'2027-03-06','2027-03-13','2027-03-20','2027-03-27',
+'2027-04-03'
 ];
 
-const standardExtra = ['2026-10-31','2026-11-28','2026-12-26','2027-01-30','2027-02-27','2027-03-27'];
-const liveOlga = ['2026-10-31','2026-11-14','2026-11-28','2026-12-12','2026-12-26','2027-01-16','2027-01-30','2027-02-13','2027-02-27','2027-03-13','2027-03-27'];
-const vipZoom = ['2026-10-21','2026-11-18','2026-12-16','2027-01-20','2027-02-17','2027-03-17'];
+const standardExtra = [
+'2026-10-31',
+'2026-11-28',
+'2026-12-26',
+'2027-01-30',
+'2027-02-27',
+'2027-03-27'
+];
 
-const finalMeeting = ['2027-04-04','Этика и деонтология. Профессиональные аспекты. Успех врача и нутрициолога.'];
+const liveOlga = [
+'2026-10-31',
+'2026-11-14',
+'2026-11-28',
+'2026-12-12',
+'2026-12-26',
+'2027-01-16',
+'2027-01-30',
+'2027-02-13',
+'2027-02-27',
+'2027-03-13',
+'2027-03-27'
+];
 
-let state = {tariff:'advanced', format:'all', block:'main'};
+const vipZoom = [
+'2026-10-21',
+'2026-11-18',
+'2026-12-16',
+'2027-01-20',
+'2027-02-17',
+'2027-03-17'
+];
+
+const finalMeeting = [
+'2027-04-04',
+'Этика и деонтология. Профессиональные аспекты. Успех врача и нутрициолога.'
+];
+
+/* НУТРИЦИОЛОГИЧЕСКИЙ БЛОК */
+
+const nutritionLectures = [
+['2026-10-21','Грудное вскармливание. Искусственное вскармливание. Прикорм'],
+['2026-11-04','Особенности обмена веществ у детей. Макро- и микронутриенты в питании детей'],
+['2026-11-18','Инструменты для оценки антропометрических показателей. Составление дневника питания'],
+['2026-11-25','Составление здорового рациона'],
+['2026-12-09','Питание детей дошкольного и школьного возраста'],
+['2026-12-23','Питание детей подростков'],
+['2027-01-06','Диагностика дефицитов по симптомам и анализам'],
+['2027-01-13','Диетические стратегии при нарушениях функции ЖКТ. Часть 1'],
+['2027-01-27','Диетические стратегии при нарушениях функции ЖКТ. Часть 2'],
+['2027-02-10','Питание для иммунитета'],
+['2027-02-24','Подходы к питанию для детей с неврологическими нарушениями'],
+['2027-03-03','Нутритивная коррекция эндокринных нарушений в практике нутрициолога'],
+['2027-03-17','Питание на детокс-программах']
+];
+
+const nutritionPractices = [
+['2026-10-29','Уход за новорождённым и ребёнком до года'],
+['2026-11-12','Разбор кейса «Метаболические нарушения»'],
+['2026-11-26','Разбор дневников питания'],
+['2026-12-03','Разбор кейсов'],
+['2026-12-17','Питание по конституциональным типам'],
+['2027-01-14','Практикум по портретной диагностике'],
+['2027-02-04','Разбор кейсов'],
+['2027-02-18','Питание на основе генетических данных'],
+['2027-03-04','Разбор кейсов'],
+['2027-03-25','Разбор кейсов']
+];
+
+const nutritionFinal = [
+'2027-04-04',
+'Совместная работа врача и нутрициолога. Зона ответственности нутрициолога. Психосоматика в семье'
+];
+
+let state = {
+tariff:'advanced',
+format:'all',
+block:'main'
+};
 
 function add(map,date,obj){
-  if(!map[date]) map[date]=[];
-  map[date].push(obj);
+if(!map[date]) map[date]=[];
+map[date].push(obj);
 }
+
 function buildEvents(){
-  const map={};
-  lectures.forEach(([d,t])=>add(map,d,{type:'lecture',kind:'Лекция',title:t,cls:'olga'}));
-  recordedPractices.forEach(d=>add(map,d,{type:'practice',kind:'Практика в записи',title:'Запись практического Zoom-разбора 3-го (предыдущего) потока.',cls:'record'}));
+const map={};
 
-  if(state.tariff==='standard'){
-    standardExtra.forEach(d=>add(map,d,{type:'practice',kind:'Дополнительная практика в записи',title:'Запись одного практического Zoom-разбора текущего 4-го потока. Доступ после эфира.',cls:'olga'}));
-  } else {
-    for(let i=1;i<lectures.length;i++){
-      const [dPrev,tPrev]=lectures[i-1];
-      let d=lectures[i][0];
-      // Экспертный час идёт в день новой лекции; после 27 декабря перенесён на 10 января.
-      add(map,d,{type:'practice',kind:'Экспертный час',title:'Ответы на вопросы по лекции «'+shortTitle(tPrev)+'»',cls:'joint'});
-    }
-    // Последний экспертный час проходит 4 апреля по лекции 28 марта.
-    add(map,'2027-04-04',{type:'practice',kind:'Экспертный час',title:'Ответы на вопросы по лекции «Органы детоксикации: печень, почки, лёгкие — оптимизация работы»',cls:'joint'});
-    liveOlga.forEach(d=>add(map,d,{type:'practice',kind:'Ольга · практика',title:'Практическое занятие',time:'12:00 МСК',cls:'olga'}));
-    add(map,finalMeeting[0],{type:'practice',kind:'Финальная живая Zoom-встреча',title:finalMeeting[1],cls:'olga'});
-    if(state.tariff==='vip'){
-      vipZoom.forEach(d=>add(map,d,{type:'practice',kind:'VIP Zoom · Клиническое мышление',title:'Дополнительная двухчасовая практическая встреча по развитию клинического мышления.',time:'19:00–21:00 МСК',cls:'vip'}));
-    }
-  }
-  return map;
+if(state.block==='nutrition'){
+
+nutritionLectures.forEach(([d,t])=>{
+add(map,d,{
+type:'lecture',
+kind:'Лекция в записи',
+title:t,
+time:'10:00 МСК',
+cls:'record'
+});
+});
+
+nutritionPractices.forEach(([d,t],i)=>{
+add(map,d,{
+type:'practice',
+kind:(i+1)+' живое практическое занятие',
+title:t+' · Анна Будрейка',
+time:'19:00 МСК',
+cls:'olga'
+});
+});
+
+add(map,nutritionFinal[0],{
+type:'practice',
+kind:'Финальная живая Zoom-встреча',
+title:nutritionFinal[1],
+cls:'joint'
+});
+
+return map;
 }
+
+lectures.forEach(([d,t])=>{
+add(map,d,{
+type:'lecture',
+kind:'Лекция',
+title:t,
+cls:'olga'
+});
+});
+
+recordedPractices.forEach(d=>{
+add(map,d,{
+type:'practice',
+kind:'Практика в записи',
+title:'Запись практического Zoom-разбора 3-го (предыдущего) потока.',
+cls:'record'
+});
+});
+
+if(state.tariff==='standard'){
+
+standardExtra.forEach(d=>{
+add(map,d,{
+type:'practice',
+kind:'Дополнительная практика в записи',
+title:'Запись одного практического Zoom-разбора текущего 4-го потока. Доступ после эфира.',
+cls:'olga'
+});
+});
+
+}else{
+
+for(let i=1;i<lectures.length;i++){
+
+const tPrev=lectures[i-1][1];
+const d=lectures[i][0];
+
+add(map,d,{
+type:'practice',
+kind:'Экспертный час',
+title:'Ответы на вопросы по лекции «'+shortTitle(tPrev)+'»',
+cls:'joint'
+});
+
+}
+
+add(map,'2027-04-04',{
+type:'practice',
+kind:'Экспертный час',
+title:'Ответы на вопросы по лекции «Органы детоксикации: печень, почки, лёгкие — оптимизация работы»',
+cls:'joint'
+});
+
+liveOlga.forEach(d=>{
+add(map,d,{
+type:'practice',
+kind:'Ольга · практика',
+title:'Практическое занятие',
+time:'12:00 МСК',
+cls:'olga'
+});
+});
+
+add(map,finalMeeting[0],{
+type:'practice',
+kind:'Финальная живая Zoom-встреча',
+title:finalMeeting[1],
+cls:'olga'
+});
+
+if(state.tariff==='vip'){
+
+vipZoom.forEach(d=>{
+add(map,d,{
+type:'practice',
+kind:'VIP Zoom · Клиническое мышление',
+title:'Дополнительная двухчасовая практическая встреча по развитию клинического мышления.',
+time:'19:00–21:00 МСК',
+cls:'vip'
+});
+});
+
+}
+
+}
+
+return map;
+}
+
 function shortTitle(t){
-  return t.length>68 ? t.slice(0,65)+'…' : t;
+return t.length>68 ? t.slice(0,65)+'…' : t;
 }
+
 function iso(y,m,d){
-  return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+return `${y}-${String(m+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
 }
+
 function render(){
-  const cal=document.getElementById('calendar');
-  const notice=document.getElementById('nutritionNotice');
-  notice.style.display=state.block==='nutrition'?'block':'none';
-  cal.style.display=state.block==='main'?'block':'none';
-  if(state.block!=='main') return;
 
-  const events=buildEvents();
-  cal.innerHTML='';
-  const dows=['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС'];
+const cal=document.getElementById('calendar');
+const notice=document.getElementById('nutritionNotice');
+const legendPrimary=document.getElementById('legendPrimary');
+const legendSecondary=document.getElementById('legendSecondary');
+const tariffButtons=document.querySelectorAll('[data-tariff]');
 
-  months.forEach(mm=>{
-    const sec=document.createElement('section');
-    sec.className='month';
-    sec.innerHTML=`<div class="month-title">${mm.name}</div><div class="dow">${dows.map(x=>`<div>${x}</div>`).join('')}</div><div class="grid"></div>`;
-    const grid=sec.querySelector('.grid');
-    const first=new Date(Date.UTC(mm.y,mm.m,1));
-    const offset=(first.getUTCDay()+6)%7;
-    const count=new Date(Date.UTC(mm.y,mm.m+1,0)).getUTCDate();
+const nutrition=state.block==='nutrition';
 
-    for(let i=0;i<offset;i++){
-      const c=document.createElement('div'); c.className='day empty'; grid.appendChild(c);
-    }
-    for(let d=1;d<=count;d++){
-      const key=iso(mm.y,mm.m,d);
-      const list=(events[key]||[]).filter(e=>state.format==='all'||e.type===state.format);
-      const c=document.createElement('div'); c.className='day';
-      c.innerHTML=`<div class="date ${list.length?'has':''}">${d}</div>`;
-      list.forEach(e=>{
-        const el=document.createElement('div');
-        el.className='event '+(e.cls||'');
-        el.innerHTML=`<div class="k">${e.kind}</div><div class="t">${e.title}</div>${e.time?`<div class="time">${e.time}</div>`:''}`;
-        c.appendChild(el);
-      });
-      grid.appendChild(c);
-    }
-    const total=offset+count, tail=(7-total%7)%7;
-    for(let i=0;i<tail;i++){
-      const c=document.createElement('div'); c.className='day empty'; grid.appendChild(c);
-    }
-    cal.appendChild(sec);
-  });
+notice.style.display=nutrition?'block':'none';
+tariffButtons.forEach(b=>b.disabled=nutrition);
+
+if(nutrition){
+
+legendPrimary.innerHTML=
+'<span class="dot olga"></span>Анна Будрейка';
+
+legendSecondary.innerHTML=
+'<span class="dot joint"></span>Финальная Zoom-встреча';
+
+}else{
+
+legendPrimary.innerHTML=
+'<span class="dot olga"></span>Ольга Гофман';
+
+legendSecondary.innerHTML=
+'<span class="dot joint"></span>Совместное занятие';
+
 }
 
-document.querySelectorAll('[data-tariff]').forEach(b=>b.addEventListener('click',()=>{
-  state.tariff=b.dataset.tariff;
-  document.querySelectorAll('[data-tariff]').forEach(x=>x.classList.toggle('active',x===b));
-  render();
-}));
-document.querySelectorAll('[data-format]').forEach(b=>b.addEventListener('click',()=>{
-  state.format=b.dataset.format;
-  document.querySelectorAll('[data-format]').forEach(x=>x.classList.toggle('active',x===b));
-  render();
-}));
-document.querySelectorAll('[data-block]').forEach(b=>b.addEventListener('click',()=>{
-  state.block=b.dataset.block;
-  document.querySelectorAll('[data-block]').forEach(x=>x.classList.toggle('active',x===b));
-  render();
-}));
+const events=buildEvents();
+
+cal.innerHTML='';
+
+const dows=['ПН','ВТ','СР','ЧТ','ПТ','СБ','ВС'];
+
+months.forEach(mm=>{
+
+const sec=document.createElement('section');
+
+sec.className='month';
+
+sec.innerHTML=
+`<div class="month-title">${mm.name}</div>
+<div class="dow">
+${dows.map(x=>`<div>${x}</div>`).join('')}
+</div>
+<div class="grid"></div>`;
+
+const grid=sec.querySelector('.grid');
+
+const first=new Date(Date.UTC(mm.y,mm.m,1));
+
+const offset=(first.getUTCDay()+6)%7;
+
+const count=
+new Date(Date.UTC(mm.y,mm.m+1,0)).getUTCDate();
+
+for(let i=0;i<offset;i++){
+
+const c=document.createElement('div');
+
+c.className='day empty';
+
+grid.appendChild(c);
+
+}
+
+for(let d=1;d<=count;d++){
+
+const key=iso(mm.y,mm.m,d);
+
+const list=(events[key]||[]).filter(
+e=>state.format==='all'||e.type===state.format
+);
+
+const c=document.createElement('div');
+
+c.className='day';
+
+c.innerHTML=
+`<div class="date ${list.length?'has':''}">${d}</div>`;
+
+list.forEach(e=>{
+
+const el=document.createElement('div');
+
+el.className='event '+(e.cls||'');
+
+el.innerHTML=
+`<div class="k">${e.kind}</div>
+<div class="t">${e.title}</div>
+${e.time?`<div class="time">${e.time}</div>`:''}`;
+
+c.appendChild(el);
+
+});
+
+grid.appendChild(c);
+
+}
+
+const total=offset+count;
+
+const tail=(7-total%7)%7;
+
+for(let i=0;i<tail;i++){
+
+const c=document.createElement('div');
+
+c.className='day empty';
+
+grid.appendChild(c);
+
+}
+
+cal.appendChild(sec);
+
+});
+
+}
+
+document.querySelectorAll('[data-tariff]').forEach(b=>{
+b.addEventListener('click',()=>{
+
+state.tariff=b.dataset.tariff;
+
+document.querySelectorAll('[data-tariff]').forEach(x=>{
+x.classList.toggle('active',x===b);
+});
+
+render();
+
+});
+});
+
+document.querySelectorAll('[data-format]').forEach(b=>{
+b.addEventListener('click',()=>{
+
+state.format=b.dataset.format;
+
+document.querySelectorAll('[data-format]').forEach(x=>{
+x.classList.toggle('active',x===b);
+});
+
+render();
+
+});
+});
+
+document.querySelectorAll('[data-block]').forEach(b=>{
+b.addEventListener('click',()=>{
+
+state.block=b.dataset.block;
+
+document.querySelectorAll('[data-block]').forEach(x=>{
+x.classList.toggle('active',x===b);
+});
+
+render();
+
+});
+});
+
 render();
 </script>
+
 </body>
 </html>

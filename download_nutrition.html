@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Скачивание расписания</title>
+</head>
+
+<body>
+
+<script>
+  const fileUrl = 'Расписание_нутрициологический_блок.pdf';
+
+  fetch(fileUrl)
+    .then(response => response.blob())
+    .then(blob => {
+      const url = window.URL.createObjectURL(blob);
+
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'Расписание_нутрициологический_блок.pdf';
+
+      document.body.appendChild(a);
+      a.click();
+      a.remove();
+
+      window.URL.revokeObjectURL(url);
+    });
+</script>
+
+</body>
+</html>
